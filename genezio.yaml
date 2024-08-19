@@ -1,0 +1,27 @@
+name: chatgpt-getting-started1
+region: us-east-1
+yamlVersion: 2
+backend:
+    path: ./server/
+    language:
+        name: js
+        packageManager: npm
+    scripts:
+        deploy:
+            - npm install
+        local:
+            - npm install
+frontend:
+    path: ./client/
+    publish: dist
+    sdk:
+        language: js
+    scripts:
+        build:
+            - npm run install-prod-sdk
+            - npm install
+            - npm run build
+        start:
+            - npm install
+            - npm run dev
+    subdomain: chatgpt-getting-started1
